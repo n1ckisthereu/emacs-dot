@@ -23,7 +23,7 @@
 
 (use-package evil-collection
   :ensure t
-  :after evil
+  :after evil treemacs
   :config
   (evil-collection-init))
 

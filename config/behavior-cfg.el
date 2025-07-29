@@ -52,4 +52,7 @@
 (setq create-lockfiles nil)
 (setq make-backup-files nil)
 
+; Remove subtitle legend on press one key
+(setq echo-keystrokes 0)
+
 (provide 'behavior-cfg)

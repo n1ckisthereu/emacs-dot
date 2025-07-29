@@ -7,11 +7,13 @@
 ;(cua-mode t)
 
 (require 'melpa-cfg)
+(require 'dashboard-cfg)
 (require 'ui-cfg)
 (require 'behavior-cfg)
 (require 'evil-cfg)
 (require 'treemacs-cfg)
 (require 'tools-cfg)
 (require 'keybinds-cfg)
+(require 'code-cfg)
 
 (provide 'init)
