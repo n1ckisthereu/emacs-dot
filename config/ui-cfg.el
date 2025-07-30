@@ -1,3 +1,4 @@
+(require 'centaur-cfg)
 ; Define my colorscheme
 (use-package catppuccin-theme
   :config
@@ -15,25 +16,6 @@
   :ensure t
   :hook (after-init . doom-modeline-mode))
 
-; Tabs
-(use-package centaur-tabs
-  :bind
-  ("C-S-h" . centaur-tabs-backward)
-  ("C-S-l" . centaur-tabs-forward)
-  :config
-  (centaur-tabs-change-fonts (face-attribute 'default :font) 110)
-  (centaur-tabs-headline-match)
-  (centaur-tabs-mode t)
-  :custom
-  (centaur-tabs-style "bar")
-  (centaur-tabs-set-bar 'over)
-  (centaur-tabs-set-icons t)
-  (centaur-tabs-height 25)
-  (centaur-tabs-icon-type 'nerd-icons)
-  (centaur-tabs-show-new-tab-button nil)
-  :demand
-  :ensure t
-  :hook (dashboard-mode . centaur-tabs-local-mode))
 
 ;; Widgets functions
 ;; (you can use them as template for more widgets)
