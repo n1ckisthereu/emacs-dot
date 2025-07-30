@@ -31,10 +31,6 @@
   (lsp-treemacs-sync-mode 1)
   :ensure t)
 
-(use-package lsp-ivy
-  :commands lsp-ivy-workspace-symbol
-  :ensure t)
-
 (use-package dap-mode
   :ensure t)
 
