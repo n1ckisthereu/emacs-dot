@@ -8,7 +8,7 @@
 (global-subword-mode 1)
 
 ; Default emacs lisp
-(setq-default initial-major-mode 'emacs-lisp-mode)
+;; (setq-default initial-major-mode 'emacs-lisp-mode)
 
 ; Remove indent tabs
 (setq-default indent-tabs-mode nil)
