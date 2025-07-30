@@ -13,5 +13,6 @@ transient
 tree-sitter
 recentf
 eshell
+history
 *~
 \#*#
