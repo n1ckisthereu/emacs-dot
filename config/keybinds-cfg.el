@@ -17,6 +17,7 @@
   "bb"  '(switch-to-buffer :which-key "switch buffer")
   "bd"  '(kill-current-buffer :which-key "kill buffer")
   "ba"  '(centaur-tabs-kill-other-buffers-in-current-group :which-key "kill other buffers")
+  "bc"  '(centaur-tabs-counsel-switch-group :which-key "change tab group")
 
   ;; Projetos
   "p"   '(:ignore t :which-key "projects")
@@ -57,6 +58,14 @@
   "l"   '(:ignore t :which-key "lsp")
   "la"  '(lsp-execute-code-action :which-key "code action")
   "lA"  '(lsp-ui-sideline-apply-code-actions :which-key "apply sideline action")
+
+  ; Windows management
+  "w"   '(:ignore t :which-key "windows")
+  "wh"  '(split-window-below :which-key "split horizontal")
+  "wv"  '(split-window-right :which-key "split vertical")
+  "wd"  '(delete-window :which-key "delete window")
+  "wo"  '(delete-other-windows :which-key "delete other windows")
+
   )
 
   ;; TODO: Implement keys to treemacs
