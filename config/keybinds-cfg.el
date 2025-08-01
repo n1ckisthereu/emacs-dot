@@ -1,3 +1,4 @@
+;;; My keybinds configuration
 (use-package general
   :ensure t)
 
@@ -28,10 +29,6 @@
   "q"   '(:ignore t :which-key "quit")
   "qq"  '(save-buffers-kill-emacs :which-key "quit Emacs")
 
-  ;; Configuração
-  ;; "c"   '(:ignore t :which-key "config")
-  ;; "cf"  '(find-file-user-init-file :which-key "open init.el")
-
   ;; Agenda
   "a"   '(:ignore t :which-key "agenda" )
   "aa"  '(org-agenda :which-key "org-agenda" ov)
@@ -46,7 +43,7 @@
   "t"   '(:ignore t :which-key "treemacs")
   "tt"  '(treemacs :which-key "toggle treemacs")
 
-  ;; flycheck
+  ;; Flycheck
   "e"   '(:ignore t :which-key "errors")
   "el"  '(flycheck-list-errors :which-key "list errors")
   "en"  '(flycheck-next-error :which-key "next error")
@@ -54,7 +51,7 @@
   "ev"  '(flycheck-verify-setup :which-key "verify setup")
   "eb"  '(flycheck-buffer :which-key "check buffer")
 
-  ;; lsp
+  ;; Lsp
   "l"   '(:ignore t :which-key "lsp")
   "la"  '(lsp-execute-code-action :which-key "code action")
   "lA"  '(lsp-ui-sideline-apply-code-actions :which-key "apply sideline action")
@@ -68,14 +65,11 @@
 
   )
 
-  ;; TODO: Implement keys to treemacs
-
 (general-define-key
  :keymaps 'override
  "C-h" 'windmove-left
  "C-l" 'windmove-right
  "C-j" 'windmove-down
  "C-k" 'windmove-up)
-
 
 (provide 'keybinds-cfg)
