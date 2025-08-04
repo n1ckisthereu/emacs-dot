@@ -16,18 +16,29 @@
 ;; Treemacs
 (use-package treemacs
   :ensure t
+  :custom
+  (treemacs-follow-after-init t)
   :config
+  (treemacs-follow-mode 1)
+  (treemacs-filewatch-mode t)
   (treemacs-indent-guide-mode t)
   (with-eval-after-load 'treemacs
     (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action)
-    (define-key treemacs-mode-map [mouse-1] #'treemacs-RET-action))
-  :hook(treemacs-mode . (lambda () (display-line-numbers-mode 0))))
+    (define-key treemacs-mode-map [mouse-1] #'treemacs-RET-action)))
 
 (use-package treemacs-nerd-icons
   :after (treemacs)
   :config
   (treemacs-load-theme "nerd-icons")
   :ensure t)
+
+(use-package treemacs-projectile
+  :ensure t
+  :after (treemacs projectile)
+  :config
+    (treemacs-project-follow-mode 1)
+    (add-hook 'projectile-after-switch-project-hook
+              #'treemacs-display-current-project-exclusively))
 
 ;; Centaur tabs
 (use-package centaur-tabs
@@ -48,9 +59,12 @@
   (centaur-tabs-show-navigation-buttons t)
   :hook (dashboard-mode . centaur-tabs-local-mode))
 
+;; Dashboard configuration
 (use-package dashboard
   :ensure t
   :after general
+  :init
+  (dashboard-setup-startup-hook)
   :bind
     (:map dashboard-mode-map
         ("<remap> <dashboard-previous-line>" . widget-backward)
@@ -60,9 +74,11 @@
         ("<remap> <right-char>" . widget-forward)
         ("<remap> <left-char>"  . widget-backward))
   :custom
-  (initial-buffer-choice 'dashboard-open)
+  ;; (initial-buffer-choice 'dashboard-open)
   (dashboard-banner-logo-title "Welcome back!")
-  (dashboard-startup-banner (if (display-graphic-p) 'logo 2))
+  ;; (dashboard-startup-banner (if (display-graphic-p) 'logo 2))
+  (dashboard-startup-banner
+   (if (display-graphic-p)(expand-file-name "dogs.png" user-emacs-directory) 2))
   (dashboard-page-separator "\n")
   (dashboard-icon-type 'nerd-icons)
   (dashboard-navigation-cycle t)
@@ -75,10 +91,10 @@
      (bookmarks . dashboard-insert-bookmark-shortmenu)
      (projects . dashboard-insert-project-shortmenu)
      (agenda . dashboard-insert-org-agenda-shortmenu)))
-  (dashboard-items '(projects
+  (dashboard-items '(recents
+                     projects
                      agenda
-                     bookmarks
-                     recents))
+                     bookmarks))
   (dashboard-startupify-list
    '(dashboard-insert-banner
      dashboard-insert-banner-title
@@ -199,6 +215,9 @@
 ;; Show relative line numbers
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
+
+(dolist (mode '(eshell-mode-hook dired-mode-hook treemacs-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 ;; Enable current line highlithing
 (global-hl-line-mode t)
