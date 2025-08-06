@@ -46,8 +46,12 @@
 ;;            (unless (string= "-" project-name)
 ;;              (format (if (buffer-modified-p) " ◉ %s" "  ●  %s - Emacs") project-name))))))
 
+; Scroll step
 (setq scroll-step            1
       scroll-conservatively  10000)
+
+(setq mouse-wheel-scroll-amount '(3 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
 
 ;; Not create bkp/lockfiles
 (setq create-lockfiles nil)
@@ -107,4 +111,17 @@
 
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
+; Make clipboard works on wayland terminal
+(when (executable-find "wl-copy")
+  (defun wl-copy (text)
+    (let ((p (make-process :name "wl-copy" :command '("wl-copy") :connection-type 'pipe)))
+      (process-send-string p text)
+      (process-send-eof p)))
+  (setq interprogram-cut-function 'wl-copy))
+
+(when (executable-find "wl-paste")
+  (defun wl-paste ()
+    (shell-command-to-string "wl-paste"))
+  (setq interprogram-paste-function 'wl-paste))(setq scroll-step            1
+      scroll-conservatively  10000)
 (provide 'behavior-cfg)

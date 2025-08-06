@@ -23,7 +23,8 @@ programming, studie and write.
 
 - [x] Evil mode does not work full on treemacs terminal
 - [x] Cursor on evil mode on terminal is wrong
-- [ ] Fix scroll step on mouse
+- [x] Fix scroll step on mouse
 - [x] Hide treemacs evil cursor
+- [x] Fix clipboard on terminal
 
 ## Nimacs (commands and keybinds)
