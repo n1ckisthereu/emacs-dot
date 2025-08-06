@@ -26,6 +26,10 @@
     (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action)
     (define-key treemacs-mode-map [mouse-1] #'treemacs-RET-action)))
 
+(use-package treemacs-evil
+	:after evil
+	:ensure t)
+
 (use-package treemacs-nerd-icons
   :after (treemacs)
   :config

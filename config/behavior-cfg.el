@@ -98,6 +98,13 @@
   :config
   (evilnc-default-hotkeys))
 
+(use-package evil-terminal-cursor-changer
+  :ensure t
+  :unless (display-graphic-p)
+  :after evil
+  :config
+  (evil-terminal-cursor-changer-activate))
+
 (add-hook 'prog-mode-hook #'hs-minor-mode)
 
 (provide 'behavior-cfg)

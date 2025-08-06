@@ -16,3 +16,14 @@ programming, studie and write.
 - [ ] Improve folding
 - [ ] Implement better undo system
 - [ ] Improve cursor comportament with evil mode
+- [ ] Markdown implementation
+  - [ ] Basic configuration do markdown mode
+
+## Nimacs (bug fix)
+
+- [x] Evil mode does not work full on treemacs terminal
+- [x] Cursor on evil mode on terminal is wrong
+- [ ] Fix scroll step on mouse
+- [x] Hide treemacs evil cursor
+
+## Nimacs (commands and keybinds)
