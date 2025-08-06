@@ -220,7 +220,7 @@
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
 
-(dolist (mode '(eshell-mode-hook dired-mode-hook treemacs-mode-hook))
+(dolist (mode '(eshell-mode-hook dired-mode-hook treemacs-mode-hook lsp-ui-imenu-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 ;; Enable current line highlithing
