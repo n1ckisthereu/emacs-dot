@@ -15,11 +15,9 @@
 (use-package lsp-ui
   :commands lsp-ui-mode
   :custom
-  (lsp-ui-doc-enable t)
-  (lsp-ui-doc-position 'at-point)
-  (lsp-ui-sideline-enable t)
   (lsp-ui-sideline-show-diagnostics t)
   (lsp-ui-sideline-show-code-actions t)
+  (lsp-ui-doc-show-with-cursor t)
   (lsp-ui-sideline-delay 0.05)
   :ensure t)
 
