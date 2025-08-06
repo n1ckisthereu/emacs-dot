@@ -83,4 +83,10 @@
                 )
     :init (global-diff-hl-mode))
 
+(use-package treesit-auto
+    :ensure t
+    :config (global-treesit-auto-mode)
+    :custom
+    (treesit-auto-install t))
+
 (provide 'code-cfg)
