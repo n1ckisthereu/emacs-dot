@@ -105,7 +105,7 @@
   (dashboard-banner-logo-title "Welcome back!")
   ;; (dashboard-startup-banner (if (display-graphic-p) 'logo 2))
   (dashboard-startup-banner
-   (if (display-graphic-p)(expand-file-name "dogs.png" user-emacs-directory) 2))
+   (if (display-graphic-p)(locate-user-emacs-file "dogs.png") 2))
   (dashboard-page-separator "\n")
   (dashboard-icon-type 'nerd-icons)
   (dashboard-navigation-cycle t)
