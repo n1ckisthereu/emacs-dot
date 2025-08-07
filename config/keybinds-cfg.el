@@ -18,7 +18,7 @@
   "bb"  '(switch-to-buffer :which-key "switch buffer")
   "bd"  '(kill-current-buffer :which-key "kill buffer")
   "ba"  '(centaur-tabs-kill-other-buffers-in-current-group :which-key "kill other buffers")
-  "bc"  '(centaur-tabs-counsel-switch-group :which-key "change tab group")
+  "bc"  '(consult-buffer :which-key "change tab group")
 
   ;; Projetos
   "p"   '(:ignore t :which-key "projects")
