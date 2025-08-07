@@ -77,8 +77,8 @@
 ;; Evil configuration
 (use-package evil
   :init
-  (setq evil-want-integration t)
   (setq evil-want-keybinding nil)
+  (setq evil-want-integration t)
   :ensure t
   :config
   (evil-mode 1)
