@@ -73,6 +73,19 @@
   (centaur-tabs-show-navigation-buttons t)
   :hook (dashboard-mode . centaur-tabs-local-mode))
 
+(use-package vertico-posframe
+	:ensure t
+	:after vertico
+	:config
+	;; (setq vertico-posframe-parameters
+	;; 			'((left-fringe . 8)
+	;; 				(right-fringe . 8)))
+
+	(setq vertico-posframe-poshandler #'posframe-poshandler-frame-top-center)
+
+	:init
+	(vertico-posframe-mode 1))
+
 ;; Dashboard configuration
 (use-package dashboard
   :ensure t
