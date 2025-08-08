@@ -32,6 +32,7 @@
   (treemacs-follow-mode 1)
   (treemacs-filewatch-mode t)
   (treemacs-indent-guide-mode t)
+	(treemacs-fringe-indicator-mode 'always)
   (with-eval-after-load 'treemacs
     (define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action)
     (define-key treemacs-mode-map [mouse-1] #'treemacs-RET-action)))
