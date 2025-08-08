@@ -204,6 +204,6 @@
 (when (executable-find "wl-paste")
   (defun wl-paste ()
     (shell-command-to-string "wl-paste"))
-  (setq interprogram-paste-function 'wl-paste))(setq scroll-step            1
-      scroll-conservatively  10000)
+  (setq interprogram-paste-function 'wl-paste))
+
 (provide 'behavior-cfg)
