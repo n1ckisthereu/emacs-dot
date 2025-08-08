@@ -1,8 +1,8 @@
 # Nimacs
 
-This is my first try using emacs, the ideia is make the emacs look my
-neovim configuration, the ideia is use this emacs for manage my life,
-programming, studie and write.
+This is my first try using emacs, the ideia is make the emacs look my neovim
+configuration, the ideia is use this emacs for manage my life, programming,
+studie and write.
 
 ## Nimacs ToDo
 
