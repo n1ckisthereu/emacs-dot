@@ -63,6 +63,8 @@
   (projectile-completion-system 'auto)
   (projectile-project-search-path '("~/"))
   (projectile-enable-caching t)
+  ;; current directory as the project root like neovim plugins
+  (projectile-require-project-root nil)
   :bind-keymap
   ("C-c p" . projectile-command-map))
 
