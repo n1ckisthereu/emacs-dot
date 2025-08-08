@@ -78,6 +78,7 @@
     :config
     (diff-hl-flydiff-mode)
     (diff-hl-margin-mode)
+    (add-hook 'diff-hl-mode-hook 'diff-hl-show-hunk-mouse-mode)
     :ensure t
     :hook ((magit-pre-refresh . diff-hl-magit-pre-refresh)
                  (magit-post-refresh . diff-hl-magit-post-refresh)
