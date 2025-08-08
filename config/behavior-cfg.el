@@ -11,8 +11,8 @@
 ;; (setq-default initial-major-mode 'emacs-lisp-mode)
 
 ;; Remove indent tabs
-(setq-default indent-tabs-mode nil)
-(add-hook 'prog-mode-hook (lambda () (setq indent-tabs-mode nil)))
+;; (setq-default indent-tabs-mode nil)
+;; (add-hook 'prog-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 ;; Move to trash
 (setq delete-by-moving-to-trash t)

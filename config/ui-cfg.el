@@ -20,6 +20,7 @@
 
 ; Doom Modeline
 (use-package doom-modeline
+  :custom (doom-modeline-indent-info t)
   :ensure t
   :hook (after-init . doom-modeline-mode))
 
@@ -261,5 +262,8 @@
 
 ;; Enable which key
 (which-key-mode)
+
+;; Define tab width
+(setq-default tab-width 2)
 
 (provide 'ui-cfg)
