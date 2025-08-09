@@ -84,6 +84,10 @@
                  (magit-post-refresh . diff-hl-magit-post-refresh)
                  (vc-checkin         . diff-hl-update)
                 )
+    :hook ((magit-pre-refresh  . diff-hl-magit-pre-refresh)
+           (magit-post-refresh . diff-hl-magit-post-refresh)
+           (vc-checkin         . diff-hl-update)
+           (diff-hl-mode-hook  . diff-hl-show-hunk-mouse-mode))
     :init (global-diff-hl-mode))
 
 (use-package treesit-auto
