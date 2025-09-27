@@ -1,0 +1,82 @@
+#+title: My org configuration (nimacs)
+#+author: Nicholas Guirro
+#+language: en
+
+This is my first try using emacs, the ideia is make the emacs look my neovim
+configuration, the ideia is use this emacs for manage my life, programming,
+studie and write.
+
+-----
+
+* Nimacs - tracker
+
+** IMPORTANT
+The next sections i'nst important, i didn't like using emacs to edit code,
+but i like so much the emacs workflow, to work with buffers, I really liked
+git using magit, but I decided to keep it just for taking academic notes
+with org, and I kept many of the settings I had made so as not to lose
+any progress.
+
+The progress list bellow is not use more, but i decided mantein if i'm
+back to emacs for coding
+
+** ToDo [5/16] [31%]
+- [X] Change company to use corfu [2/2]
+  + [X] Use corfu instead company
+  + [X] Corfu
+    * [X] Documentation preview
+    * [X] Mouse support
+- [ ] Find a better structure to organize my project
+- [X] Configure better the vertico and your optional complements
+- [ ] Script for health check and manage the emacs installation
+  + [ ] Create basic shell to navigate between commands
+- [ ] A better way to configure my lsp for multiples languages
+- [ ] Improve the configuration for use the projectile
+- [ ] Work 100% on terminal
+- [ ] Improve my evil configuration for make better
+- [ ] Improve folding
+- [ ] Implement better undo system
+- [X] Drag in drop suport
+- [X] Copy paste replacement on evil
+- [X] Improve cursor comportament with evil mode
+- [ ] Languages support [0/4]
+  + [ ] ASM
+  + [ ] Python
+  + [ ] Rust
+  + [ ] C lang
+- [-] Org implementation [0/2]
+  + [ ] Behavior [0/5]
+    * [ ] Org babel
+    * [ ] Org evil integration
+    * [ ] Org Table of content
+    * [ ] Org "rerender" count of progress keybind
+    * [ ] Export org
+      - [ ] Use pandoc to export org to multiples models
+      - [ ] Add noter for document anotation
+  + [-] Ui [2/4]
+    * [X] Org indent
+    * [X] Org modern
+    * [ ] Render latex on preview
+    * [ ] Org roam (?)
+- [ ] Treemacs behavior improvement
+  + [ ] Add keys to bulk actions [0/4]
+    * [ ] mark files impo
+    * [ ] treemacs bulk actions move
+    * [ ] treemacs bulk rename
+    * [ ] treemacs bulk delete
+
+** Bugfix [2/2]
+- [X] Behavior [3/3]
+  + [X] Evil mode does not work full on treemacs terminal
+  + [X] Fix scroll step on mouse
+  + [X] Fix clipboard on terminal
+- [X] Ui [4/4]
+  + [X] Cursor on evil mode on terminal is wrong
+  + [X] Hide treemacs evil cursor
+  + [X] Disable org plugins with better perfomance on terminal
+  + [X] Visual glitch on cli after open org mode - cause: org-modern
+    * [X] Remove org modern on terminal
+    * [X] Use org bullets over modern org
+    * [X] Use org rainbow tags on
+
+

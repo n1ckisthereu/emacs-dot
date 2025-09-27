@@ -1,4 +1,16 @@
-;;; My keybinds configuration
+;;; keybinds-cfg.el --- keyboard behavior  -*- lexical-binding: t; -*-
+
+;; Copyright (C) 2025
+;; SPDX-License-Identifier: GPL-3.0-or-later
+
+;; Author: nick
+
+;;; Commentary:
+
+;; Define keybinds like vim
+
+;;; Code:
+
 (use-package general
 	:ensure t)
 
@@ -62,6 +74,17 @@
 	"wv"	'(split-window-right :which-key "split vertical")
 	"wd"	'(delete-window :which-key "delete window")
 	"wo"	'(delete-other-windows :which-key "delete other windows")
+
+	;; Olivetti
+	;; "o"		'(:ignore t :which-key "org-mode")
+	;; "ol"	'(olivetti-mode :which-key "olivetti mode toggle")
+
+	;; Ui
+	"u"		'(:ignore t :which-key "ui settings")
+	"umt"	'(imenu-list-smart-toggle :which-key "toggle imenu list")
+
+	; Debugger
+	"db"  '(dap-breakpoint-toggle :which-key "toggle dap breakpoint")
 )
 
 (general-define-key
@@ -84,3 +107,5 @@
 							standard-indent 2)
 
 (provide 'keybinds-cfg)
+
+;;; keybinds-cfg.el ends here

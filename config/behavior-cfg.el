@@ -4,20 +4,15 @@
 ;; Remove two spaces from end of sentence
 (setq-default sentence-end-double-space nil)
 
-;; Improve navigation between words
 (global-subword-mode 1)
-
-;; Default emacs lisp
-;; (setq-default initial-major-mode 'emacs-lisp-mode)
-
-;; Remove indent tabs
-;; (setq-default indent-tabs-mode nil)
-;; (add-hook 'prog-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
 ;; Move to trash
 (setq delete-by-moving-to-trash t)
 
-;; Remove initial message
+;; Improve emacs perfomance
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max 1048576)
+
 (setq-default initial-scratch-message nil)
 
 ;; Increase undo limit
@@ -27,24 +22,12 @@
 ;; Take new window space from all other windows
 (setq window-combination-resize t)
 
-;; Visual feedback
-;; (setq visible-bell t)
-
 ;; Fill all real char
 (setq x-stretch-cursor t)
 
 ;; ellipsis on truncated text
 (with-eval-after-load 'mule-util
-	(setq truncate-string-ellipsis "…"))
-
-;; Improve title - actually doesn't work
-;; (setq frame-title-format
-;;			 '(""
-;;				 "%b"
-;;				 (:eval
-;;					(let ((project-name (projectile-project-name)))
-;;						(unless (string= "-" project-name)
-;;							(format (if (buffer-modified-p) " ◉ %s" "  ●  %s - Emacs") project-name))))))
+	(setq truncate-string-ellipsis " ⤵"))
 
 ; Scroll step
 (setq scroll-step						 1
@@ -59,6 +42,12 @@
 
 ;; Remove subtitle legend on press one key
 (setq echo-keystrokes 0)
+
+;; Set utf enconding
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-language-environment 'utf-8)
+(set-selection-coding-system 'utf-8)
 
 ;;; Evil configuration
 (defun vim-dec-inc-delta (delta)
@@ -83,7 +72,8 @@
 	:config
 	(evil-mode 1)
 	:custom
-	(evil-want-C-u-scroll t))
+	(evil-want-C-u-scroll t)
+	(evil-kill-on-visual-paste nil))
 
 (use-package evil-collection
 	:ensure t
@@ -93,9 +83,10 @@
 
 (use-package evil-goggles
 	:ensure t
+	:custom
+	(evil-goggles-use-diff-faces)
 	:config
-	(evil-goggles-mode)
-	(evil-goggles-use-diff-faces))
+	(evil-goggles-mode))
 
 (use-package evil-nerd-commenter
 	:ensure t
@@ -118,15 +109,15 @@
 	(vertico-mouse-mode)
 	:custom
 	(vertico-scroll-margin 0) ;; Different scroll margin
-	;; (vertico-count 20) ;; Show more candidates
-	;; (vertico-resize t) ;; Grow and shrink the Vertico minibuffer
+	(vertico-count 20) ;; Show more candidates
+	(vertico-resize t) ;; Grow and shrink the Vertico minibuffer
 	(vertico-cycle t) ;; Enable cycling for `vertico-next/previous'
 	:init
 	(vertico-mode))
 
 ;; Persist history over Emacs restarts. Vertico sorts by history position.
 (use-package savehist
-	;; :ensure t
+	:ensure t
 	:init
 	(savehist-mode))
 
@@ -162,26 +153,8 @@
 (use-package embark
 	:ensure t
 	:init
-
-	;; Optionally replace the key help with a completing-read interface
 	(setq prefix-help-command #'embark-prefix-help-command)
-
-	;; Show the Embark target at point via Eldoc. You may adjust the
-	;; Eldoc strategy, if you want to see the documentation from
-	;; multiple providers. Beware that using this can be a little
-	;; jarring since the message shown in the minibuffer can be more
-	;; than one line, causing the modeline to move up and down:
-
-	;; (add-hook 'eldoc-documentation-functions #'embark-eldoc-first-target)
-	;; (setq eldoc-documentation-strategy #'eldoc-documentation-compose-eagerly)
-
-	;; Add Embark to the mouse context menu. Also enable `context-menu-mode'.
-	;; (context-menu-mode 1)
-	;; (add-hook 'context-menu-functions #'embark-context-menu 100)
-
 	:config
-
-	;; Hide the mode line of the Embark live/completions buffers
 	(add-to-list 'display-buffer-alist
 							 '("\\`\\*Embark Collect \\(Live\\|Completions\\)\\*"
 								 nil
@@ -189,9 +162,13 @@
 
 ;; Consult users will also want the embark-consult package.
 (use-package embark-consult
-	:ensure t ; only need to install it, embark loads it after consult if found
+	:ensure t
 	:hook
 	(embark-collect-mode . consult-preview-at-point-mode))
+
+;; Disable Tooltips
+(setq x-gtk-use-system-tooltips nil)
+(setq use-system-tooltips nil)
 
 ; Make clipboard works on wayland terminal
 (when (executable-find "wl-copy")
@@ -207,3 +184,5 @@
 	(setq interprogram-paste-function 'wl-paste))
 
 (provide 'behavior-cfg)
+
+;;; behavior-cfg.el ends here
