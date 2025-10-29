@@ -1,37 +1,40 @@
-;;; Load my configuration from the directory config
-(add-to-list 'load-path (locate-user-emacs-file "config/"))
+;; (defun load-modules (path)
+;;   (dolist (file (directory-files-recursively path "^com-.*\\.el$"))
+;;     (let* ((dir  (file-name-directory file))
+;;            (base (file-name-base file))
+;;            (feat (intern base)))
+;;       (add-to-list 'load-path dir)
+;;       (condition-case err
+;;           (progn
+;;             (require feat)
+;;             (message "loading module: %s" feat))
+;;         (error
+;;          (message "❌ error on load %s: %s" feat err))))))
 
-; Emacs minibuffer configurations.
-(use-package emacs
-	:custom
-	;; Enable context menu. `vertico-multiform-mode' adds a menu in the minibuffer
-	;; to switch display modes.
-	(context-menu-mode t)
-	;; Support opening new minibuffers from inside existing minibuffers.
-	(enable-recursive-minibuffers t)
-	;; Hide commands in M-x which do not work in the current mode.  Vertico
-	;; commands are hidden in normal buffers. This setting is useful beyond
-	;; Vertico.
-	(read-extended-command-predicate #'command-completion-default-include-p)
-	;; Do not allow the cursor in the minibuffer prompt
-	(minibuffer-prompt-properties
-	 '(read-only t cursor-intangible t face minibuffer-prompt))
+;; (load-modules (locate-user-emacs-file "config/"))
 
-	(custom-file (locate-user-emacs-file "custom.el")))
+(defun load-modules (path)
+  (let* ((files (directory-files-recursively path "^com-.*\\.el$"))
+         (total (length files))
+         (count 0))
+    (dolist (file files)
+      (let* ((dir  (file-name-directory file))
+             (base (file-name-base file))
+             (feat (intern base)))
+        (add-to-list 'load-path dir)
+        (setq count (1+ count))
+        (let ((progress (format "[%d/%d] loading %s..."
+                                count total feat)))
+          (message "%s" progress))
+        (condition-case err
+            (require feat)
+          (error
+           (message "❌ error on %s: %s" feat err))))
+      ))
+  (message "✅ All modules loaded!"))
 
 
-;; (setq lsp-log-io t)
-
-(require 'melpa-cfg)
-(require 'variables)
-(require 'ui-cfg)
-(require 'behavior-cfg)
-(require 'keybinds-cfg)
-(require 'code-cfg)
-
-;; Langs and others
-;; (require 'markdown-cfg)
-(require 'org-cfg)
-(require 'python-cfg)
+(load-modules (locate-user-emacs-file "config/"))
 
 (provide 'init)
+

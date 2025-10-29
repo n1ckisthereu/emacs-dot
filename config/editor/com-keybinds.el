@@ -1,4 +1,4 @@
-;;; keybinds-cfg.el --- keyboard behavior  -*- lexical-binding: t; -*-
+;;; com-keybinds.el --- keyboard behavior  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2025
 ;; SPDX-License-Identifier: GPL-3.0-or-later
@@ -106,6 +106,5 @@
 (setq-default indent-tabs-mode t
 							standard-indent 2)
 
-(provide 'keybinds-cfg)
-
-;;; keybinds-cfg.el ends here
+(provide 'com-keybinds)
+;;; com-keybinds.el ends here

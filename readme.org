@@ -78,5 +78,3 @@ back to emacs for coding
     * [X] Remove org modern on terminal
     * [X] Use org bullets over modern org
     * [X] Use org rainbow tags on
-
-

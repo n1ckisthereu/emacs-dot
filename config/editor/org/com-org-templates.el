@@ -1,0 +1,1 @@
+(provide 'com-org-templates)
