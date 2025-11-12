@@ -17,6 +17,8 @@
   (let* ((files (directory-files-recursively path "^com-.*\\.el$"))
          (total (length files))
          (count 0))
+    (add-to-list 'load-path (locate-user-emacs-file "config/"))
+    (require 'com-melpa)
     (dolist (file files)
       (let* ((dir  (file-name-directory file))
              (base (file-name-base file))
@@ -32,7 +34,6 @@
            (message "❌ error on %s: %s" feat err))))
       ))
   (message "✅ All modules loaded!"))
-
 
 (load-modules (locate-user-emacs-file "config/"))
 

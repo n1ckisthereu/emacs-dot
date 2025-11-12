@@ -18,3 +18,4 @@ projects
 *~
 \#*#
 com-pkgs/
+.mypy_cache

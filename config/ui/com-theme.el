@@ -14,11 +14,16 @@
 	;; Enable custom neotree theme (nerd-icons must be installed!)
 	;; (doom-themes-neotree-config)
 	;; or for treemacs users
-	(doom-themes-treemacs-config)
+	;; (doom-themes-treemacs-config)
 	;; Corrects (and improves) org-mode's native fontification.
 	(doom-themes-org-config))
 	;; (custom-set-faces
   ;;  `(mode-line ((t (:background ,(doom-color 'dark-violet)))))
   ;;  `(font-lock-comment-face ((t (:foreground ,(doom-color 'base6))))))
+
+(use-package solaire-mode
+	:config (solaire-global-mode t)
+	:ensure t
+)
 
 (provide 'com-theme)

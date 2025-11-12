@@ -65,12 +65,12 @@ back to emacs for coding
     * [ ] treemacs bulk rename
     * [ ] treemacs bulk delete
 
-** Bugfix [2/2]
+** Bugfix [1/2]
 - [X] Behavior [3/3]
   + [X] Evil mode does not work full on treemacs terminal
   + [X] Fix scroll step on mouse
   + [X] Fix clipboard on terminal
-- [X] Ui [4/4]
+- [X] Ui [3/4]
   + [X] Cursor on evil mode on terminal is wrong
   + [X] Hide treemacs evil cursor
   + [X] Disable org plugins with better perfomance on terminal

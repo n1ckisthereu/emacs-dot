@@ -20,7 +20,7 @@
 	(centaur-tabs-style "bar")
 	(centaur-tabs-height 28)
 	(centaur-tabs-set-icons t)
-	(centaur-tabs-icon-type 'all-the-icons)
+	(centaur-tabs-icon-type 'nerd-icons)
 	(centaur-tabs-cycle-scope 'tabs)
 	(centaur-tabs-show-navigation-buttons t)
 	:hook (dashboard-mode . centaur-tabs-local-mode))
@@ -28,17 +28,13 @@
 ;; Treemacs
 (use-package treemacs
 	:ensure t
-	:init
-	(treemacs-resize-icons 14)
+	:config
+	(treemacs-indent-guide-mode t)
 	:custom
 	(treemacs-follow-after-init t)
 	(treemacs-follow-mode 1)
 	(treemacs-filewatch-mode t)
 	(treemacs-fringe-indicator-mode 'always)
-	:config
-	(if (display-graphic-p)
-			(treemacs-resize-icons 20))
-	(treemacs-indent-guide-mode)
 	(with-eval-after-load 'treemacs
 		(define-key treemacs-mode-map [mouse-1] #'treemacs-single-click-expand-action)
 		(define-key treemacs-mode-map [mouse-1] #'treemacs-RET-action)))
@@ -48,14 +44,14 @@
 	:ensure t)
 
 (use-package treemacs-nerd-icons
-	:if (unless  (display-graphic-p))
   :after (treemacs)
-	:functions treemacs-load-theme
-  :preface
-  (defun treemacs--propagate-new-icons (_theme))
-  :custom-face (cfrs-border-color ((t (:inherit posframe-border))))
+	;; :functions treemacs-load-theme
+  ;; :preface
+  ;; (defun treemacs--propagate-new-icons (_theme))
+  ;; :custom-face (cfrs-border-color ((t (:inherit posframe-border))))
 	:config
 	(treemacs-load-theme "nerd-icons")
+	;; (treemacs-nerd-icons-config)
 	:ensure t)
 
 (use-package treemacs-projectile
@@ -82,12 +78,8 @@
   :custom
   (nerd-icons-font-family "JetBrainsMono Nerd Font Mono"))
 
-(use-package all-the-icons
-	:ensure t
-  :if (display-graphic-p))
-
-(use-package svg-lib
-	:ensure t)
+;; (use-package svg-lib
+;; 	:ensure t)
 
 (use-package nerd-icons-completion
   :demand t
@@ -101,7 +93,5 @@
 		(whitespace-display-mappings '((space-mark ?\	 [?·])
 			(tab-mark ?\t [?→ ?\t])))
 		:ensure nil)
-
-
 
 (provide 'com-interface)
