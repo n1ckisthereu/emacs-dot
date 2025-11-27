@@ -1,4 +1,3 @@
-; Doom Modeline
 (use-package doom-modeline
 	:custom
 	(doom-modeline-indent-info t)
@@ -58,25 +57,15 @@
 	:ensure t
 	:after (treemacs projectile)
 	:config
-		(treemacs-project-follow-mode 1)
-		(add-hook 'projectile-after-switch-project-hook
-							#'treemacs-display-current-project-exclusively))
+	(treemacs-project-follow-mode 1)
+	(add-hook 'projectile-after-switch-project-hook
+						#'treemacs-display-current-project-exclusively))
 
 (use-package nerd-icons
-  :commands (nerd-icons-octicon
-             nerd-icons-faicon
-             nerd-icons-flicon
-             nerd-icons-wicon
-             nerd-icons-mdicon
-             nerd-icons-codicon
-             nerd-icons-devicon
-             nerd-icons-ipsicon
-             nerd-icons-pomicon
-             nerd-icons-powerline)
-	:demand t
+	;; :demand t
   :ensure t
-  :custom
-  (nerd-icons-font-family "JetBrainsMono Nerd Font Mono"))
+	:custom
+	(nerd-icons-font-family "JetBrainsMono Nerd Font Mono"))
 
 ;; (use-package svg-lib
 ;; 	:ensure t)
@@ -88,10 +77,10 @@
   (after-init . nerd-icons-completion-mode))
 
 (use-package whitespace
-		:custom
-		(whitespace-style '(face tabs spaces trailing space-mark tab-mark))
-		(whitespace-display-mappings '((space-mark ?\	 [?·])
-			(tab-mark ?\t [?→ ?\t])))
-		:ensure nil)
+	:custom
+	(whitespace-style '(face tabs spaces trailing space-mark tab-mark))
+	(whitespace-display-mappings '((space-mark ?\	 [?·])
+																 (tab-mark ?\t [?→ ?\t])))
+	:ensure nil)
 
 (provide 'com-interface)

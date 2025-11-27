@@ -1,5 +1,6 @@
 (use-package corfu
-  :ensure t :init (global-corfu-mode)
+  :ensure t
+	:init (global-corfu-mode)
   ;; ativa popupinfo junto
   (corfu-popupinfo-mode 1)
 	:custom
@@ -42,7 +43,7 @@
 	(setq completion-styles '(orderless basic))
 	(setq completion-category-defaults nil)
 	(setq completion-category-overrides
-				 '((file (styles partial-completion))))	)
+				'((file (styles partial-completion))))	)
 
 (use-package corfu-terminal
 	:load-path "~/.config/emacs/emacs-local-plugins/corfu-terminal"

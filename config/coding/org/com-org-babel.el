@@ -23,16 +23,16 @@
 ;;                 (format "Prepare local buffer environment for org source block (%s)."
 ;;                         (upcase ,lang))))))))
 
-(defvar org-babel-lang-list
-  '("python" "bash" "sh"))
-(dolist (lang org-babel-lang-list)
-  (eval `(lsp-org-babel-enable ,lang)))
+;; (defvar org-babel-lang-list
+;;   '("python" "bash" "sh"))
+;; (dolist (lang org-babel-lang-list)
+;;   (eval `(lsp-org-babel-enable ,lang)))
 
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (python . t)
-   (shell . t)
-   ))
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((emacs-lisp . t)
+;;    (python . t)
+;;    (shell . t)
+;;    ))
 
 (provide 'com-org-babel)

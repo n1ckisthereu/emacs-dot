@@ -33,6 +33,7 @@
 
 (use-package olivetti
 	:ensure t
+	:config
 	:hook (olivetti-mode-on-hook . (lambda () (olivetti-set-width 100))))
 
 (use-package imenu-list

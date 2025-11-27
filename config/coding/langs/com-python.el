@@ -3,7 +3,7 @@
 (use-package lsp-mode
 	:custom
 	(lsp-ruff-server-command "")
-  (lsp-pylsp-server-command '("/home/nick/.config/emacs/com-pkgs/python/bin/pylsp"))
+  ;; (lsp-pylsp-server-command '("/home/nick/.config/emacs/com-pkgs/python/bin/pylsp"))
 	(lsp-pylsp-plugins-ruff-enabled t)
 	(lsp-pylsp-plugins-mypy-enabled t)
 	(lsp-pylsp-plugins-mypy-report-progress t)

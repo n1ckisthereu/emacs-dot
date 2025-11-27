@@ -24,16 +24,14 @@
 	(lsp-ui-doc-delay 0)
 	:ensure t)
 
-
-(use-package lsp-treemacs
-	:commands lsp-treemacs-errors-list
-	:after treemacs
-  :custom
-  (lsp-treemacs-theme "nerd-icons-ext")
-	:config
-	(lsp-treemacs-sync-mode 1)
-	:ensure t)
-
+;; (use-package lsp-treemacs
+;; 	:commands lsp-treemacs-errors-list
+;; 	:after treemacs lsp-mode
+;;   ;; :custom
+;;   ;; (lsp-treemacs-theme "nerd-icons-ext")
+;; 	:config
+;; 	(lsp-treemacs-sync-mode 1)
+;; 	:ensure t)
 
 ;; Dap debugger
 (use-package dap-mode
@@ -47,7 +45,7 @@
 			(set-face-attribute 'dap-ui-marker-face nil :inherit nil)
 			(set-face-background 'dap-ui-pending-breakpoint-face "blue")
 			(set-face-attribute 'dap-ui-verified-breakpoint-face nil
-                        :inherit 'dap-ui-pending-breakpoint-face)))
+													:inherit 'dap-ui-pending-breakpoint-face)))
 	:ensure t)
 
 ;; Fly check
@@ -60,12 +58,28 @@
 ;; 	:custom
 ;; 	(flyover-levels '(error warning info)))
 
+
 (use-package treesit-auto
-		:ensure t
-		:config
-		(global-treesit-auto-mode)
-		:custom
-		(treesit-font-lock-level 4)
-		(treesit-auto-install t))
+	:config (global-treesit-auto-mode)
+	:custom
+	(treesit-auto-install nil)
+	(treesit-font-lock-level 4)
+	:init
+	(setq treesit-language-source-alist
+				'((bash       . ("https://github.com/tree-sitter/tree-sitter-bash.git" "v0.23.3"))
+					(c          . ("https://github.com/tree-sitter/tree-sitter-c.git" "v0.23.6"))
+					(cpp        . ("https://github.com/tree-sitter/tree-sitter-cpp.git" "v0.23.4"))
+					(css        . ("https://github.com/tree-sitter/tree-sitter-css.git" "v0.23.2"))
+					(html       . ("https://github.com/tree-sitter/tree-sitter-html.git" "v0.23.2"))
+					(json       . ("https://github.com/tree-sitter/tree-sitter-json.git" "v0.24.8"))
+					(lua        . ("https://github.com/tree-sitter/tree-sitter-lua.git"))
+					(make       . ("https://github.com/alemuller/tree-sitter-make.git"))
+					(markdown   . ("https://github.com/ikatyang/tree-sitter-markdown.git"))
+					(python     . ("https://github.com/tree-sitter/tree-sitter-python.git" "v0.23.6"))
+					(ruby       . ("https://github.com/tree-sitter/tree-sitter-ruby.git" "v0.23.1"))
+					(rust       . ("https://github.com/tree-sitter/tree-sitter-rust.git" "v0.23.3"))
+					))
+	:ensure t
+	)
 
 (provide 'com-lsp)
